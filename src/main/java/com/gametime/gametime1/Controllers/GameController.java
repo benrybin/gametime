@@ -16,12 +16,12 @@ public class GameController {
     private GameService gameService;
 
     @PostMapping(path = "game/add")
-    public String addNewGame(@RequestBody Game game){
+    public Boolean addNewGame(@RequestBody Game game){
         System.out.println(game.getTitle());
         if (gameService.save(game)){
-            return "Game Saved Sucessfully";
+            return true;
         }else{
-            return "Game Already Exists";
+            return false;
         }
     }
 
