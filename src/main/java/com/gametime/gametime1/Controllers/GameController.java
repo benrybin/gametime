@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 public class GameController {
@@ -23,6 +25,11 @@ public class GameController {
         }else{
             return false;
         }
+    }
+    @PostMapping(path = "game/search")
+    public List<String> searchGame(@RequestBody String title){
+        return gameService.gameSearch(title);
+
     }
 
 }

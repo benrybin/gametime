@@ -5,6 +5,9 @@ import com.gametime.gametime1.Repos.GameRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class GameService {
     @Autowired
@@ -20,5 +23,18 @@ public class GameService {
         }
 
 
+    }
+    public List<String> gameSearch(String title){
+        
+        List<Game> temp = gameRepo.findByTitleStartingWith(title);
+        List<String> answer = new ArrayList<>();
+
+        for (Game game: temp) {
+            answer.add(game.getTitle());
+
+            
+        }
+        
+        return answer;
     }
 }
