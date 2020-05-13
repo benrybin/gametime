@@ -15,8 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 @CrossOrigin
 public class UserController {
 
-
-
     private UserService userService;
     private ModelMapper modelMapper;
 
@@ -26,8 +24,6 @@ public class UserController {
         this.modelMapper = modelMapper;
         this.userService = userService;
     }
-
-
 
 
     @PostMapping("/signin")

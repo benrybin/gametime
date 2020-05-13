@@ -48,6 +48,7 @@ public class UserService {
     public String signUp(User user) {
         if(!userRepo.existsByUsername(user.getUsername())) {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
+            userRepo.save(user);
             return jwtTokenProvider.createToken(user.getUsername());
         } else {
             throw new CustomException("Username is already in use", HttpStatus.UNPROCESSABLE_ENTITY);
