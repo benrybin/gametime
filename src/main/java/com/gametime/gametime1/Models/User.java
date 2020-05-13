@@ -1,8 +1,6 @@
 package com.gametime.gametime1.Models;
 
 
-
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -52,4 +50,5 @@ public class User implements Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
+
 }

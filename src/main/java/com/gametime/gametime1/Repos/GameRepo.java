@@ -10,4 +10,5 @@ import java.util.List;
 public interface GameRepo extends JpaRepository<Game,Long> {
     boolean existsGameByTitle(String title);
     List<Game> findByTitleStartingWith(String title);
+    Game findByTitle(String title);
 }

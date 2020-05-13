@@ -24,7 +24,7 @@ public class GameService {
 
 
     }
-    public List<String> gameSearch(String title){
+    public List<String> gameSearchAuto(String title){
         
         List<Game> temp = gameRepo.findByTitleStartingWith(title);
         List<String> answer = new ArrayList<>();
@@ -36,5 +36,10 @@ public class GameService {
         }
         
         return answer;
+    }
+    public List<Game> gameSearch(String title){
+       return gameRepo.findByTitleStartingWith(title);
+
+
     }
 }
