@@ -22,6 +22,7 @@ public class UserService {
     private JwtTokenProvider jwtTokenProvider;
     private PasswordEncoder passwordEncoder;
 
+
     @Autowired
     public UserService(UserRepo userRepo, AuthenticationManager authenticationManager, JwtTokenProvider jwtTokenProvider, PasswordEncoder passwordEncoder) {
         this.userRepo = userRepo;
