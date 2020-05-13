@@ -4,10 +4,7 @@ package com.gametime.gametime1.Controllers;
 import com.gametime.gametime1.Models.Game;
 import com.gametime.gametime1.Services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,8 +23,13 @@ public class GameController {
             return false;
         }
     }
-    @PostMapping(path = "game/search")
-    public List<String> searchGame(@RequestBody String title){
+    @GetMapping(path = "game/searchauto")
+    public List<String> searchGameAutoComplete(@RequestParam String title){
+        return gameService.gameSearchAuto(title);
+
+    }
+    @GetMapping(path = "game/search")
+    public List<Game> searchGame(@RequestParam String title){
         return gameService.gameSearch(title);
 
     }
