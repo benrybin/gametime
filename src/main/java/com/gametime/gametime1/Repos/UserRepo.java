@@ -1,4 +1,9 @@
 package com.gametime.gametime1.Repos;
 
-public interface UserRepo {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepo  {
+
+
 }
