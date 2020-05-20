@@ -31,6 +31,11 @@ public class User implements Serializable {
         return id;
     }
 
+    @NotNull
+    @Size(max = 200, message = "Maximum email length: 200 characters")
+    @Column(name = "email", length = 200)
+    private String email;
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -50,5 +55,9 @@ public class User implements Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public String getEmail() { return email; }
+
+    public void setEmail (String email) { this.email = email; }
 
 }
