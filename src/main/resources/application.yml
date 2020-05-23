@@ -11,3 +11,17 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
+---
+spring:
+  profiles: heroku
+  datasource:
+    url: jdbc:mysql://us-cdbr-iron-east-02.cleardb.net/heroku_39e7dde0cc32894
+    username: b1bcb292207afc
+    password: 14fe2501
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
