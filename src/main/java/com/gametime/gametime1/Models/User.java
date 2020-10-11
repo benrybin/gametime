@@ -5,6 +5,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -15,6 +17,8 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
+    @OneToMany(mappedBy = "activeUser", fetch = FetchType.LAZY)
+    private Set<GamePrefs> gamePrefs;
 
     @NotNull
     @Size(min = 8, message = "Minimum password length: 8 characters")
@@ -27,6 +31,8 @@ public class User implements Serializable {
     private String username;
 
 
+
+
     public Long getId() {
         return id;
     }
@@ -35,6 +41,9 @@ public class User implements Serializable {
     @Size(max = 200, message = "Maximum email length: 200 characters")
     @Column(name = "email", length = 200)
     private String email;
+
+    @OneToMany(mappedBy = "activeUser", cascade = CascadeType.ALL)
+    private List<RustPrefs> rustPrefs;
 
     public void setId(Long id) {
         this.id = id;

@@ -2,6 +2,7 @@ package com.gametime.gametime1.Models;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,6 +16,10 @@ public class Game {
     private String description;
     private Integer rating;
     private String banner;
+    @OneToMany(mappedBy = "games", cascade = CascadeType.ALL)
+    private List<GameinGroup> groupGames;
+
+
 
 
     @ManyToMany(cascade = CascadeType.ALL)
